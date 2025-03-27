@@ -677,3 +677,13 @@ for i in range(1,5):
 print('A média de idade do grupo é de {:.0f} anos.'.format(media_idade/4))
 print('O homem mais velho tem {} anos e se chama {}.'.format(mais_velho, pessoa))
 print('Ao todo são {} mulheres com menos de 20 anos.'.format(mulheres))
+
+#Desafio 57: Faça um programa que leia o sexo de uma pessoa, mas só aceite os valores ‘M’ ou ‘F’. 
+# Caso esteja errado, peça a digitação novamente até ter um valor correto.
+sexo = input('Digite seu sexo (M/F): ').strip().upper()[0]
+while sexo not in 'MF':
+    sexo = input('Dados inválidos, por favor, informe seu sexo (M/F): ').strip().upper()[0]    
+print('Sexo {} registrado com sucesso!'.format(sexo))
+
+
+print('teste')
