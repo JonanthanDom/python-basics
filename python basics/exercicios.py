@@ -510,3 +510,170 @@ elif forma_pgto == 3:
         juros = compras + (compras *20 / 100)
         print('''Você vai pagar {}x de {:.2f} com juros de 20%.
               Sua compra de R${:.2f} vai custar R${:.2f}.'''.format(parcelas, (juros/ parcelas), compras,  juros))
+
+'''Desafio 45: Crie um programa que faça o computador jogar Jokenpô com você.'''
+import random
+from time import sleep
+lista = ['pedra', 'papel', 'tesoura']
+print('=-=' *10, ' PEDRA PAPEL TESOURA', '=-='*10)
+print('''Suas opções:
+      [0] PEDRA
+      [1] PAPEL
+      [2] TESOURA''')
+palpite = int(input('Qual é a sua jogada? '))
+print('JO')
+sleep(1)
+print('KEN')
+sleep(1)
+print('PO!!!')
+sorteio = random.choice(lista)
+print('='*40)
+print('O computador jogou {}'.format(sorteio))
+print('Você jogou {}'.format(lista[palpite]))
+print("="*40)
+if sorteio == lista[palpite]:
+    print('EMPATE!!!')
+elif sorteio == lista[0]:
+    if lista[palpite] == lista[1]:
+        print('Papel cobre pedra. \n você venceu!!!!')
+    elif lista[palpite] == lista[2]:
+        print('Pedra quebra tesoura. \n computador venceu!!!!')
+elif sorteio == lista[1]:
+    if lista[palpite] == lista[0]:
+        print('Papel cobre pedra. \n computador venceu!!!')
+    elif lista[palpite] == lista[2]:
+        print('Tesoura corta papel. \n você venceu!!!')
+elif sorteio == lista[2]:
+    if lista[palpite] == lista[0]:
+        print('Pedra quebra tesoura. \n você venceu!!!')
+    elif lista[palpite] == lista[1]:
+        print('tesoura corta papel. \n computador venceu!!!')
+print('-='*10 , 'FIM', '-='*10)
+
+#Desafio 46: Faça um programa que mostre na tela uma contagem regressiva para o estouro de fogos 
+# de artifício, indo de 10 até 0, com uma pausa de 1 segundo entre eles.
+from time import sleep
+for i in range (10, -1, -1):
+    print(i)
+    sleep(1)
+print('FELIZ ANO NOVO!!!')
+
+#Desafio 47: Crie um programa que mostre na tela todos os números pares que estão no intervalo 
+# entre 1 e 50.
+for i in range(2,51, 2):
+    print(i)
+
+#Desafio 48:Faça um programa que calcule a soma entre todos os números que são múltiplos de três 
+# e que se encontram no intervalo de 1 até 500.
+soma = 0
+for i in range(1,501,2 ):
+     if i % 3 == 0:
+          soma = soma + i
+print(soma)
+
+#Desafio 49: Refaça o DESAFIO 9, mostrando a tabuada de um número que o usuário escolher, 
+# só que agora utilizando um laço for.
+numero = int(input('Digite um número para calcular a tabuada:'))
+for i in range(0,11):
+    print('{} x {} = {}'.format(numero, i, numero*i))
+
+#Desafio 50: Desenvolva um programa que leia seis números inteiros 
+# e mostre a soma apenas daqueles que forem pares. Se o valor digitado for ímpar, desconsidere-o.
+soma  = 0
+impares = []
+for i in range(1 ,7):
+  num = int(input('Digite um número: '))
+  if num % 2 ==0:
+    soma = soma + num
+  elif num % 2 == 1:
+    impares.append(i)
+print('A soma dos números pares digitados é: {} \nOs números Impares foram {}'.format(soma, impares))
+
+#Desafio 51: Desenvolva um programa que leia o primeiro termo e a razão de uma PA. 
+# No final, mostre os 10 primeiros termos dessa progressão.
+print('='*20)
+print('10 termos de uma PA')
+print('='*20)
+termo = int(input('Digite o primeiro termo: '))
+razao = int(input('Razão: '))
+print(termo)
+for i in range(0,9):
+    termo = termo + razao
+    print(termo)
+print('ACABOU')
+
+#Desafio 52: Faça um programa que leia um número inteiro e diga se ele é ou não um número primo.
+num = int(input('Digite um número: '))
+tot = 0
+for i in range(1, num + 1):
+    if num % i == 0:
+        tot += 1
+if tot == 2:
+    print('O núemro {} é primo'.format(num))
+else:
+    print('o número {} não é primo'.format(num))
+
+#Desafio 53: Crie um programa que leia uma frase qualquer e diga se ela é um palíndromo, 
+# desconsiderando os espaços. Exemplos de palíndromos:
+# PÓS A SOPA, A SACADA DA CASA, A TORRE DA DERROTA, O LOBO AMA O BOLO, ANOTARAM A DATA DA MARATONA.
+
+# recebendo as frases, eliminando os espaços e separando os elementos
+frase = input('Digite uma frase: ').upper()
+lista_letras = [letra for letra in frase if letra != ' ']
+lista_letras = ''.join(lista_letras)
+#criando uma lista inversa para comparação
+lista_inversa = lista_letras[::-1]
+lista_inversa = ''.join(lista_inversa)
+print('A frase {} inversa fica {}'.format(lista_letras, lista_inversa))
+#comparando as duas listas
+if lista_letras == lista_inversa:
+    print('É um palindromo')
+else:
+    print('Não é um palindromo.')
+
+#Desafio 54:Crie um programa que leia o ano de nascimento de sete pessoas.
+#  No final, mostre quantas pessoas ainda não atingiram a maioridade e quantas já são maiores.
+from datetime import datetime
+idade = []
+maior = 0
+menor = 0
+for i in range(1,8):
+    data=int(input('Digite o ano em que a {}ª pessoa nasceu: '.format(i)))
+    idade.append(data)
+for ano in idade:
+    if datetime.now().year - ano >= 18:
+        maior += 1
+    else:
+        menor += 1
+print(' Ao todo temos {} pessoa maiores de idade \n e {} pessoas menores de idade'.format(maior, menor))
+    
+#Desafio 55: Faça um programa que leia o peso de cinco pessoas. 
+# No final, mostre qual foi o maior e o menor peso lidos.
+peso = []
+for i in range(1,6): 
+    valor = float(input('Digite o peso da {}ª pessoa: '.format(i)))
+    peso.append(valor)
+maior = max(peso)
+menor = min(peso)
+print('O maior peso lido foi {} e o menor foi {}'.format(maior, menor))
+
+#Desafio 56: Desenvolva um programa que leia o nome, idade e sexo de 4 pessoas. 
+# No final do programa, mostre: a média de idade do grupo, 
+# qual é o nome do homem mais velho e quantas mulheres têm menos de 20 anos.
+media_idade = 0
+mais_velho = 0
+mulheres = 0
+for i in range(1,5):
+    print('----{}ª pessoa----'.format(i))
+    nome = input('Digite o nome da {}ª pessoa: '.format(i)).strip()
+    idade = int(input('Digite a idade de {}: '.format(nome)))
+    media_idade += idade
+    sexo = input('Digite o sexo de {} (M/F): '.format(nome)).upper()
+    if sexo == 'M' and idade > mais_velho:
+        mais_velho = idade
+        pessoa = nome
+    if sexo == 'F' and idade < 20:
+        mulheres =+ 1
+print('A média de idade do grupo é de {:.0f} anos.'.format(media_idade/4))
+print('O homem mais velho tem {} anos e se chama {}.'.format(mais_velho, pessoa))
+print('Ao todo são {} mulheres com menos de 20 anos.'.format(mulheres))
