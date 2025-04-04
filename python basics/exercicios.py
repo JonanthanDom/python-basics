@@ -797,3 +797,65 @@ while cont < 10:
     print(termo)
     cont += 1
 print('ACABOU')
+
+'''Desafio 62: Melhore o DESAFIO 61, perguntando para o usuário se ele quer mostrar
+ mais alguns termos. O programa encerrará quando ele disser que quer mostrar 0 termos.'''
+print('='*20)
+print('progressão aritmetica')
+print('='*20)
+termo = int(input('Digite o primeiro termo: '))
+razao = int(input('Razão: '))
+cont = 1
+print(termo, end=' ')
+while cont < 10:
+    termo = termo + razao
+    print(termo, end=' ')
+    cont += 1
+print('Pausa')
+contador = 1
+while contador > 0:
+    contador += 1
+    cont2= int(input('\nQuantos termos você quer mostrar a mais? '))
+    if cont2 == 0:
+        contador =0
+    while cont2 > 0:
+        termo += razao
+        print(termo, end =' ')
+        cont2 -= 1
+        cont += 1
+    print('Pausa')
+print('Progressão finalizada com {} termos mostrados'.format(cont))
+print('=-'*20)
+
+'''Desafio 63: Escreva um programa que leia um número N inteiro qualquer e mostre na tela os N primeiros elementos de uma Sequência de Fibonacci. 
+Exemplo:
+0 – 1 – 1 – 2 – 3 – 5 – 8'''
+print('-'*25)
+print('SEQUENCIA DE FIBONACCI')
+print('-'*25)
+termos = int(input('Quantos termos você quer mostrar? '))
+f0 = 0
+f1 = 1
+fn = 2
+print(f0, '>', f1, '>', end=' ')
+termos -=2
+while termos >0:
+    fn = f0 + f1
+    print(fn, '>', end=' ')
+    f0 = f1 
+    f1 = fn
+    fn = (f0 -1) + (f1-2)
+    termos -= 1
+    
+'''Desafio 64: Crie um programa que leia vários números inteiros pelo teclado. 
+O programa só vai parar quando o usuário digitar o valor 999, que é a condição de parada. 
+No final, mostre quantos números foram digitados e qual foi a soma entre eles (desconsiderando o flag).'''
+cont = 0
+num = 0
+n = 0
+n = int(input('Digite um núemro [999 para parar]: '))
+while n != 999:
+    num += n
+    cont += 1
+    n = int(input('Digite um núemro [999 para parar]: '))
+print('Você digitou {} números e a soma deles foi: {}'.format(cont, num))
