@@ -7,17 +7,16 @@ menu = 0
 while menu != 4: #início do laço de repetição do programa com menu inicial.
     
     menu = int(input('''Escolha a operação a ser realizada:
-        [ 1 ] Relação Albumina/Creatinina
+        [ 1 ] Relação proteína/Creatinina
         [ 2 ] Calculo FiO2
         [ 3 ] Proteina de 24h
         [ 4 ] sair do programa '''))
     
     if menu ==1: #Primeira funcionalidade: calculo da relação albumina / creatinina (urina)
-        print('Relação Albumina creatinina')
+        print('Relação proteína/creatinina')
         albumina = float(input('Resultado da albumina urinária: '))
         creatinina = float(input('Resultado da creatinina urinária: '))
-        creatinina = creatinina * 10 # é preciso converter a unidade da creatinina,isso é feito multiplicando por 10.
-        calculo = (albumina / creatinina) * 1000 #o calculo é feito dividindo o resultado da albumina pela creatinina e multiplicando por 1000 valores normais são inferires a 30mg/g
+        calculo = (albumina / creatinina) #O calculo é obtido através da divisão da proteína pela creatinina
         print('O reaultado é: {:.2f} mg/g'.format(calculo))
         print('='*30)
 
