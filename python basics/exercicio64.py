@@ -4,9 +4,9 @@ No final, mostre quantos números foram digitados e qual foi a soma entre eles (
 cont = 0
 num = 0
 n = 0
-n = int(input('Digite um núemro [999 para parar]: '))
+n = int(input('Digite um numero [999 para parar]: '))
 while n != 999:
     num += n
     cont += 1
-    n = int(input('Digite um núemro [999 para parar]: '))
-print('Você digitou {} números e a soma deles foi: {}'.format(cont, num))
+    n = int(input('Digite um numero [999 para parar]: '))
+print('Você digitou {} numeros e a soma deles foi: {}'.format(cont, num))
